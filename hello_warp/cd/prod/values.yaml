@@ -1,0 +1,8 @@
+hello:
+  image:
+    version: 0.1.0
+    pullPolicy: IfNotPresent
+  resources:
+    limits:
+      cpu: 400m
+      memory: 100Mi

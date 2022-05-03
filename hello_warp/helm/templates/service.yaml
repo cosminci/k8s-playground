@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Release.Name }}
+  labels:
+    {{- include "hello.labels" . | indent 4 }}
+spec:
+  ports:
+    - port: 80
+      targetPort: requests-port
+  selector:
+    {{- include "hello.selectorLabels" . | indent 6 }}

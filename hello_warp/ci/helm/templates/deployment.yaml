@@ -25,7 +25,7 @@ spec:
     spec:
       containers:
         - name: {{ .Release.Name }}
-          image: "cosminc/hello-warp:{{ .Values.hello.image.version }}"
+          image: "cosminc/hello-warp:{{ .Values.appVersion }}"
           imagePullPolicy: {{ .Values.hello.image.pullPolicy }}
           resources:
             {{- toYaml .Values.hello.resources | nindent 12 }}

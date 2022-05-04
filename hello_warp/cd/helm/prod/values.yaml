@@ -4,5 +4,5 @@ hello:
     pullPolicy: IfNotPresent
   resources:
     limits:
-      cpu: 400m
+      cpu: 500m
       memory: 100Mi

@@ -3,7 +3,10 @@ use warp::Filter;
 #[tokio::main]
 async fn main() {
     let hello =
-        warp::path!("hello" / String).map(|name| format!("Hello, {}!", name));
+        warp::path!("hello" / String).map(|name| {
+            println!("Received hello {} request", name);
+            format!("Hello, {}!", name)
+        });
     let health =
         warp::path("health").map(|| format!("Ok"));
     let api = hello.or(health);

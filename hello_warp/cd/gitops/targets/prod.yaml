@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: hello-warp-production
+  name: hello-warp-prod
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -17,7 +17,7 @@ spec:
         - ../../cd/helm/prod/values.yaml
   destination:
     server: https://kubernetes.default.svc
-    namespace: production
+    namespace: prod
   syncPolicy:
     automated:
       selfHeal: true

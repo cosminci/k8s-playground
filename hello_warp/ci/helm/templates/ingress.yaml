@@ -9,10 +9,24 @@ spec:
   rules:
     - http:
         paths:
-          - path: /
+          - path: /{{ .Release.Namespace }}
             pathType: Prefix
             backend:
               service:
                 name: {{ .Release.Name }}
                 port:
                   number: 80
+
+---
+
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: {{ .Release.Name }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "hello.labels" . | indent 4 }}
+spec:
+  stripPrefix:
+    prefixes:
+      - /{{ .Release.Namespace }}

@@ -10,11 +10,11 @@ spec:
   source:
     repoURL: https://github.com/cosminci/k8s-playground.git
     targetRevision: HEAD
-    path: hello_warp/ci/helm
+    path: hello_warp/cd/helm
     helm:
       valueFiles:
-        - ../../cd/helm/values.yaml
-        - ../../cd/helm/prod/values.yaml
+        - values.yaml
+        - prod/values.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: prod

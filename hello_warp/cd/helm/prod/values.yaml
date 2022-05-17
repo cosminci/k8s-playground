@@ -5,3 +5,4 @@ hello:
     limits:
       cpu: 500m
       memory: 100Mi
+appVersion: 0.1.1
